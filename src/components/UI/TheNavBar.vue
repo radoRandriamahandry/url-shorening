@@ -1,5 +1,15 @@
 <template>
-  <div class="flex justify-between max-w-screen-xl mx-auto items-center py-10">
+  <div
+    class="
+      flex
+      justify-between
+      max-w-screen-lg
+      w-full
+      mx-auto
+      items-center
+      py-10
+    "
+  >
     <div class="flex gap-8 items-center">
       <h1 class="logo font-bold text-2xl">Shortly</h1>
       <nav class="flex gap-7 font-medium text-neutral-violet">

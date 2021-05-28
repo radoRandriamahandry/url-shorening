@@ -1,12 +1,12 @@
 <template>
-  <TheNavBar />
+  <HeroSection />
 </template>
 
 <script>
-import TheNavBar from "../components/UI/TheNavBar.vue"
+import HeroSection from "../components/layouts/HeroSection.vue"
 export default {
   components: {
-    TheNavBar,
+    HeroSection,
   },
 }
 </script>
