@@ -3,7 +3,7 @@
     <TheNavBar />
     <section class="max-w-screen-lg grid mx-auto h-full grid-cols-5">
       <div class="flex flex-col justify-center gap-5 col-span-3">
-        <h1 class="text-7xl font-bold leading-[1.1em]">
+        <h1 class="text-7xl font-bold leading-[1.1em] text-neutral-dark-blue">
           More than just shorter links
         </h1>
         <p class="w-3/4 leading-relaxed">
@@ -16,7 +16,7 @@
       </div>
       <div class="flex items-center">
         <img
-          class="absolute transform scale-90"
+          class="absolute transform scale-75"
           src="/src/assets/images/illustration-working.svg"
           alt="Working illustration"
         />

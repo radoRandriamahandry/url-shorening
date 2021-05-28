@@ -11,7 +11,7 @@
     "
   >
     <div class="flex gap-8 items-center">
-      <h1 class="logo font-bold text-2xl">Shortly</h1>
+      <h3 class="logo font-bold text-2xl text-neutral-dark-blue">Shortly</h3>
       <nav class="flex gap-7 font-medium text-neutral-violet">
         <router-link class="hover:text-neutral-dark-violet" to="#"
           >Features</router-link
