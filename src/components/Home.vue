@@ -15,17 +15,20 @@
     <Cards />
   </main>
   <FullBanner />
+  <Footer />
 </template>
 
 <script>
 import HeroSection from "../components/layouts/HeroSection.vue"
 import Cards from "../components/layouts/Cards.vue"
 import FullBanner from "../components/layouts/FullBanner.vue"
+import Footer from "../components/layouts/Footer.vue"
 export default {
   components: {
     HeroSection,
     Cards,
     FullBanner,
+    Footer,
   },
 }
 </script>
