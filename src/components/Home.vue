@@ -1,6 +1,6 @@
 <template>
   <HeroSection />
-  <main class="bg-gray-200 relative -mt-[250px] h-screen">
+  <main class="bg-gray-200 relative -mt-[250px] pb-32">
     <!-- This div overlap the hero section -->
     <div
       class="
@@ -18,7 +18,17 @@
       <h2 class="text-4xl font-bold text-center text-neutral-dark-blue">
         Advanced Statistics
       </h2>
-      <p class="text-center w-[62%] mx-auto mt-7 leading-loose">
+      <p
+        class="
+          text-center
+          w-[62%]
+          mx-auto
+          mt-7
+          leading-loose
+          text-lg
+          md:text-base
+        "
+      >
         Track how your links are performing across the web with our advanced
         statisctics dashboard.
       </p>

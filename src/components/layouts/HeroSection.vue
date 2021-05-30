@@ -31,7 +31,7 @@
         >
           More than just shorter links
         </h1>
-        <p class="text-2xl leading-relaxed md:text-base lg:w-3/4">
+        <p class="text-lg leading-relaxed md:text-base lg:w-3/4">
           Build your brand's recognitino and get detailed insights on how your
           links are performing.
         </p>
