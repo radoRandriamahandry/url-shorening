@@ -1,20 +1,42 @@
 <template>
-  <header class="h-screen flex flex-col">
+  <header class="flex flex-col gap-5 md:h-screen">
     <TheNavBar />
-    <section class="max-w-screen-lg grid mx-auto h-full grid-cols-5">
-      <div class="flex flex-col justify-center gap-5 col-span-3">
-        <h1 class="text-7xl font-bold leading-[1.1em] text-neutral-dark-blue">
+    <!-- Only show on small screen -->
+    <div class="w-auto pb-10 pl-10 md:hidden">
+      <img
+        class="relative object-cover h-[450px] object-left"
+        src="/src/assets/images/illustration-working.svg"
+        alt="Working illustration"
+      />
+    </div>
+    <!-- end -->
+    <section
+      class="relative grid h-full max-w-screen-lg px-10 pb-10 mx-auto  md:pb-0 md:grid-cols-5 xl:px-0"
+    >
+      <div
+        class="flex flex-col justify-center gap-5 text-center  md:col-span-2 lg:col-span-3 md:text-left"
+      >
+        <h1
+          class="
+            xl:text-7xl
+            md:text-4xl
+            text-5xl
+            font-bold
+            leading-[1.1em]
+            text-neutral-dark-blue
+          "
+        >
           More than just shorter links
         </h1>
-        <p class="w-3/4 leading-relaxed">
+        <p class="text-2xl leading-relaxed md:text-base lg:w-3/4">
           Build your brand's recognitino and get detailed insights on how your
           links are performing.
         </p>
         <div class="mt-4">
-          <button class="btn rounded-full">Get Started</button>
+          <button class="rounded-full btn">Get Started</button>
         </div>
       </div>
-      <div class="flex items-center">
+      <div class="items-center hidden md:flex">
         <img
           class="absolute transform scale-75"
           src="/src/assets/images/illustration-working.svg"
