@@ -8,6 +8,7 @@
   html {
     font-family: "Poppins", sans-serif;
     @apply overflow-x-hidden;
+    -webkit-text-size-adjust: 100%;
   }
   .btn {
     @apply px-8 py-4 text-xl font-semibold text-white md:py-3 md:px-5 bg-primary-cyan md:font-normal md:text-base hover:opacity-80;
