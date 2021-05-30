@@ -2,16 +2,18 @@
   <header class="flex flex-col gap-5 md:h-screen">
     <TheNavBar />
     <!-- Only show on small screen -->
-    <div class="w-auto pb-10 pl-10 md:hidden">
+
+    <div class="w-auto pl-10 md:hidden">
       <img
         class="relative object-cover h-[450px] object-left"
         src="/src/assets/images/illustration-working.svg"
         alt="Working illustration"
       />
     </div>
-    <!-- end -->
+    <!-- END only show on small screens-->
+
     <section
-      class="relative grid h-full max-w-screen-lg px-10 pb-10 mx-auto  md:pb-0 md:grid-cols-5 xl:px-0"
+      class="relative grid h-full max-w-screen-lg px-10 pb-10 mx-auto  md:grid-cols-5 xl:px-0"
     >
       <div
         class="flex flex-col justify-center gap-5 text-center  md:col-span-2 lg:col-span-3 md:text-left"
@@ -38,12 +40,14 @@
       </div>
       <div class="items-center hidden md:flex">
         <img
-          class="absolute transform scale-75"
+          class="absolute transform scale-90"
           src="/src/assets/images/illustration-working.svg"
           alt="Working illustration"
         />
       </div>
     </section>
+
+    <!-- Input URL -->
     <ShortenInput />
   </header>
 </template>
@@ -51,11 +55,14 @@
 <script>
 import TheNavBar from "../UI/TheNavBar.vue"
 import ShortenInput from "../UI/ShortenInput.vue"
+
 export default {
   components: {
     TheNavBar,
     ShortenInput,
   },
+
+  setup() {},
 }
 </script>
 

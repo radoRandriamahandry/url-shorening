@@ -9,12 +9,12 @@
             <li>
               <router-link to="#">Link Shortening</router-link>
             </li>
-            <ul>
+            <li>
               <router-link to="#">Branded Links</router-link>
-            </ul>
-            <ul>
+            </li>
+            <li>
               <router-link to="#">Analytics</router-link>
-            </ul>
+            </li>
           </ul>
         </div>
         <div>
@@ -23,12 +23,12 @@
             <li>
               <router-link to="#">Blog</router-link>
             </li>
-            <ul>
+            <li>
               <router-link to="#">Developers</router-link>
-            </ul>
-            <ul>
+            </li>
+            <li>
               <router-link to="#">Support</router-link>
-            </ul>
+            </li>
           </ul>
         </div>
         <div>
@@ -37,15 +37,15 @@
             <li>
               <router-link to="#">About</router-link>
             </li>
-            <ul>
+            <li>
               <router-link to="#">Our Team</router-link>
-            </ul>
-            <ul>
+            </li>
+            <li>
               <router-link to="#">Careers</router-link>
-            </ul>
-            <ul>
+            </li>
+            <li>
               <router-link to="#">Contact</router-link>
-            </ul>
+            </li>
           </ul>
         </div>
       </section>
