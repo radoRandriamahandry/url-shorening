@@ -11,7 +11,7 @@
     -webkit-text-size-adjust: 100%;
   }
   .btn {
-    @apply px-8 py-4 text-xl font-semibold text-white md:py-3 md:px-5 bg-primary-cyan md:font-normal md:text-base hover:opacity-80;
+    @apply px-8 py-4 text-xl font-semibold text-gray-200 transition-all duration-150 ease-in md:py-3 md:px-5 bg-primary-cyan md:font-normal md:text-base hover:bg-opacity-60 hover:text-white;
   }
   p {
     @apply text-neutral-violet;

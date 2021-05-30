@@ -15,8 +15,9 @@
     <section
       class="relative grid h-full max-w-screen-lg px-10 pb-10 mx-auto  md:grid-cols-5 xl:px-0"
     >
+      <!-- Hero content -->
       <div
-        class="flex flex-col justify-center gap-5 text-center  md:col-span-2 lg:col-span-3 md:text-left"
+        class="flex flex-col justify-center gap-5 pb-8 text-center  md:col-span-2 lg:col-span-3 md:text-left"
       >
         <h1
           class="
@@ -38,6 +39,8 @@
           <button class="rounded-full btn">Get Started</button>
         </div>
       </div>
+      <!-- END hero content -->
+
       <div class="items-center hidden md:flex">
         <img
           class="absolute transform scale-90"
