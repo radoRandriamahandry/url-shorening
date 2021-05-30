@@ -19,6 +19,12 @@ module.exports = {
           "dark-violet": "hsl(260, 8%, 14%)",
         },
       },
+      backgroundImage: {
+        "desktop-shorten":
+          "url('/src/assets/images/desktop/bg-shorten-desktop.svg')",
+        "mobile-shorten":
+          "url('/src/assets/images/mobile/bg-shorten-mobile.svg')",
+      },
     },
   },
   variants: {

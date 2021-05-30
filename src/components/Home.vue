@@ -2,7 +2,18 @@
   <HeroSection />
   <main class="bg-gray-200 relative -mt-[250px] h-screen">
     <!-- This div overlap the hero section -->
-    <div class="h-[80px] bg-gray-200 w-screen absolute -top-20"></div>
+    <div
+      class="
+        h-[120px]
+        md:h-[80px]
+        bg-gray-200
+        w-screen
+        absolute
+        md:-top-20
+        top-[-110px]
+      "
+    ></div>
+    <!-- End of the overlap -->
     <section class="grid max-w-screen-lg py-24 mx-auto place-content-center">
       <h2 class="text-4xl font-bold text-center text-neutral-dark-blue">
         Advanced Statistics

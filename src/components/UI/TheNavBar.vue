@@ -1,18 +1,10 @@
 <template>
   <div
-    class="
-      flex
-      justify-between
-      max-w-screen-lg
-      w-full
-      mx-auto
-      items-center
-      py-10
-    "
+    class="flex items-center justify-between w-full max-w-screen-lg px-10 py-10 mx-auto  xl:px-0"
   >
-    <div class="flex gap-8 items-center">
-      <h3 class="logo font-bold text-2xl text-neutral-dark-blue">Shortly</h3>
-      <nav class="flex gap-7 font-medium text-neutral-violet">
+    <div class="flex items-center gap-8">
+      <h3 class="text-2xl font-bold logo text-neutral-dark-blue">Shortly</h3>
+      <nav class="flex font-medium gap-7 text-neutral-violet">
         <router-link class="hover:text-neutral-dark-violet" to="#"
           >Features</router-link
         >
@@ -26,11 +18,11 @@
     </div>
     <div class="flex gap-7">
       <button
-        class="text-neutral-violet font-medium hover:text-neutral-dark-violet"
+        class="font-medium text-neutral-violet hover:text-neutral-dark-violet"
       >
         Login
       </button>
-      <button class="btn rounded-full">Sign Up</button>
+      <button class="rounded-full btn">Sign Up</button>
     </div>
   </div>
 </template>
