@@ -25,52 +25,67 @@
       <button class="rounded-full btn">Sign Up</button>
     </div>
 
+    <!-- Hamburger button -->
     <div class="md:hidden" @click="toggleMenuHandler">
-      <button
-        v-if="isOpen"
-        class="z-30 transition-all duration-300 ease-in bg-red-400 btn"
+      <transition
+        mode="out-in"
+        enter-active-class="transition-all duration-300 ease-out"
+        enter-from-active-class="transform -rotate-90"
+        leave-active-class="transition-all duration-300 ease-in"
+        leave-to-class="transform rotate-90"
       >
-        Close menu
-      </button>
-      <button
-        v-if="!isOpen"
-        class="z-0 transition-all duration-300 ease-in btn"
-      >
-        Open menu
-      </button>
+        <FontAwesomeIcon
+          v-if="isOpen"
+          class="text-gray-400"
+          :icon="['fas', 'times']"
+          size="2x"
+        />
+        <FontAwesomeIcon
+          v-else
+          class="text-gray-400"
+          :icon="['fas', 'bars']"
+          size="2x"
+        />
+      </transition>
     </div>
+    <!-- END hamburger button -->
   </div>
 
   <!-- Mobile menu -->
-
-  <div
-    v-if="isOpen"
-    class="absolute z-10 h-[490px] w-full px-10 top-[130px] pr-22"
+  <transition
+    enter-active-class="transition-all duration-300 ease-out"
+    enter-from-class="transform -translate-y-5 "
+    leave-active-class="transition-all duration-150 ease-in"
+    leave-to-class="transform -translate-y-5 "
   >
-    <div v-click-away="clickAwayHandler" class="h-full">
-      <div
-        class="flex flex-col items-center justify-center gap-10 px-8 py-12 text-xl font-bold text-gray-200  bg-primary-violet rounded-3xl"
-      >
-        <div>
-          <router-link to="#">Features</router-link>
-        </div>
-        <div>
-          <router-link to="#">Pricing</router-link>
-        </div>
-        <div>
-          <router-link to="#">Resources</router-link>
-        </div>
-        <div class="w-full h-px bg-gray-500"></div>
-        <div>
-          <button class="text-xl font-bold">Login</button>
-        </div>
-        <div>
-          <button class="rounded-full btn">Sign Up</button>
+    <div
+      v-if="isOpen"
+      class="absolute z-10 h-[490px] w-full px-10 top-[130px] pr-22"
+    >
+      <div v-click-away="clickAwayHandler" class="h-full">
+        <div
+          class="flex flex-col items-center justify-center gap-10 px-8 py-12 text-xl font-bold text-gray-300  bg-primary-violet rounded-3xl"
+        >
+          <div class="hover:text-white">
+            <router-link to="#">Features</router-link>
+          </div>
+          <div class="hover:text-white">
+            <router-link to="#">Pricing</router-link>
+          </div>
+          <div class="hover:text-white">
+            <router-link to="#">Resources</router-link>
+          </div>
+          <div class="w-full h-px bg-gray-500"></div>
+          <div class="hover:text-white">
+            <button class="text-xl font-bold">Login</button>
+          </div>
+          <div>
+            <button class="rounded-full btn">Sign Up</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </transition>
   <!-- END mobile menu -->
 </template>
 

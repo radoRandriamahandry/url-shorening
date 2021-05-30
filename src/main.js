@@ -9,8 +9,16 @@ import {
   faPinterest,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 
-library.add(faFacebookSquare, faTwitter, faPinterest, faInstagram)
+library.add(
+  faFacebookSquare,
+  faTwitter,
+  faPinterest,
+  faInstagram,
+  faBars,
+  faTimes
+)
 
 import "./index.css"
 
