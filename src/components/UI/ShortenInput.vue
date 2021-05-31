@@ -16,13 +16,27 @@
         placeholder="Shorten a link here..."
         class="z-10 w-full px-6 py-4 text-xl rounded-lg md:text-base md:py-3"
       />
-      <button class="z-10 flex-shrink-0 rounded-lg btn">Shorten it!</button>
+      <button class="z-10 flex-shrink-0 rounded-lg btn" @click="shortenLink">
+        Shorten it!
+      </button>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+import useAPI from "../../composables/useAPI.js"
+
+export default {
+  setup() {
+    const { fetchData } = useAPI()
+
+    const shortenLink = () => {
+      fetchData()
+    }
+
+    return { shortenLink }
+  },
+}
 </script>
 
 <style></style>
