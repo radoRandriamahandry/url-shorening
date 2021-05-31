@@ -10,7 +10,7 @@
 
     <!-- END line -->
 
-    <div class="flex flex-col justify-between gap-16 lg:flex-row lg:gap-7">
+    <div class="flex flex-col justify-between gap-20 lg:flex-row lg:gap-7">
       <CardsItem
         :image="firstCard.image"
         :title="firstCard.title"
@@ -20,13 +20,13 @@
         :image="secondCard.image"
         :title="secondCard.title"
         :content="secondCard.content"
-        class="top-8"
+        class="lg:top-8"
       />
       <CardsItem
         :image="thirdCard.image"
         :title="thirdCard.title"
         :content="thirdCard.content"
-        class="top-16"
+        class="lg:top-16"
       />
     </div>
   </section>
