@@ -24,6 +24,9 @@ module.exports = {
           "url('/src/assets/images/desktop/bg-shorten-desktop.svg')",
         "mobile-shorten":
           "url('/src/assets/images/mobile/bg-shorten-mobile.svg')",
+        "desktop-boost":
+          "url('/src/assets/images/desktop/bg-boost-desktop.svg')",
+        "mobile-boost": "url('/src/assets/images/mobile/bg-boost-mobile.svg')",
       },
     },
   },

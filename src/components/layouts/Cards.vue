@@ -1,16 +1,16 @@
 <template>
   <section
-    class="relative flex justify-center max-w-screen-lg px-10 mx-auto  md:justify-start md:items-center md:px-0"
+    class="relative flex justify-center px-10 mx-auto  lg:max-w-screen-lg lg:justify-start lg:items-center"
   >
     <!-- flex items-center is for position the ligne to the center -->
     <!-- On large screen -->
-    <div class="absolute hidden w-full h-2 bg-primary-cyan md:block"></div>
+    <div class="absolute hidden w-3/4 h-2 bg-primary-cyan lg:block"></div>
     <!-- On small screen -->
-    <div class="absolute w-2 h-full bg-primary-cyan md:hidden"></div>
+    <div class="absolute w-2 h-full bg-primary-cyan lg:hidden"></div>
 
     <!-- END line -->
 
-    <div class="flex flex-col justify-between gap-16 md:flex-row md:gap-7">
+    <div class="flex flex-col justify-between gap-16 lg:flex-row lg:gap-7">
       <CardsItem
         :image="firstCard.image"
         :title="firstCard.title"
