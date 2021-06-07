@@ -49,20 +49,15 @@
         />
       </div>
     </section>
-
-    <!-- Input URL -->
-    <ShortenInput />
   </header>
 </template>
 
 <script>
 import TheNavBar from "../UI/TheNavBar.vue"
-import ShortenInput from "../UI/ShortenInput.vue"
 
 export default {
   components: {
     TheNavBar,
-    ShortenInput,
   },
 
   setup() {},
