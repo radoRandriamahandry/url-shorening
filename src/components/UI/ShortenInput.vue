@@ -3,7 +3,7 @@
     class="z-10 grid w-full max-w-screen-lg px-10 mx-auto  xl:px-0 place-items-center sm:mt-0"
   >
     <div
-      class="relative flex flex-col w-full gap-5 p-10 overflow-hidden rounded-lg  md:bg-desktop-shorten md:bg-cover bg-primary-violet md:flex-row md:p-14"
+      class="relative w-full p-10 overflow-hidden rounded-lg  md:bg-desktop-shorten md:bg-cover bg-primary-violet md:p-14"
     >
       <img
         class="absolute top-0 right-0 z-0 w-[70%] md:hidden"
@@ -11,30 +11,65 @@
         alt=""
         srcset=""
       />
-      <input
-        type="text"
-        placeholder="Shorten a link here..."
-        class="z-10 w-full px-6 py-4 text-xl rounded-lg md:text-base md:py-3"
-      />
-      <button class="z-10 flex-shrink-0 rounded-lg btn" @click="shortenLink">
-        Shorten it!
-      </button>
+      <div class="flex flex-col gap-5 md:flex-row">
+        <!-- Input for small screen with dynamic placeholder in order to display an error message inside the input -->
+        <input
+          v-model="link"
+          type="text"
+          :placeholder="placeholder"
+          class="z-10 w-full px-6 py-4 text-xl rounded-lg md:hidden"
+          :class="[hasError && 'ring ring-red-400 placeholder-red-300']"
+        />
+        <!-- Input for large screen with static placeholder -->
+        <input
+          v-model="link"
+          type="text"
+          placeholder="Shorten a link here"
+          class="z-10 hidden w-full px-6 rounded-lg md:block"
+          :class="[hasError && 'ring ring-red-400 placeholder-red-300']"
+        />
+        <button
+          class="z-10 flex-shrink-0 rounded-lg btn"
+          @click="shortenLink()"
+        >
+          <span v-if="!isLoading">Shorten it!</span>
+          <span v-else>Processing...</span>
+        </button>
+      </div>
+      <p class="absolute hidden text-sm italic text-red-300 bottom-7 md:block">
+        Please add a link
+      </p>
     </div>
   </section>
 </template>
 
 <script>
+import { ref } from "@vue/reactivity"
 import useAPI from "../../composables/useAPI.js"
+import { computed } from "vue"
 
 export default {
   setup() {
-    const { fetchData } = useAPI()
+    const link = ref("")
+    const hasError = ref(false)
+    const placeholder = computed(() => {
+      return hasError.value ? "Please Enter a link" : "Shorten a link here..."
+    })
 
-    const shortenLink = () => {
-      fetchData()
+    const { isLoading, fetchData } = useAPI()
+
+    const shortenLink = async () => {
+      hasError.value = false
+      if (link.value !== "") {
+        await fetchData(link.value)
+        link.value = ""
+      } else {
+        hasError.value = true
+        console.log("Empty link")
+      }
     }
 
-    return { shortenLink }
+    return { link, hasError, isLoading, placeholder, shortenLink }
   },
 }
 </script>
