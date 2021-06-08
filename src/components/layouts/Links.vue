@@ -1,0 +1,33 @@
+<template>
+  <!--  -->
+  <div v-if="links.length > 0" class="px-10 mt-10 md:mt-0 md:px-0">
+    <div
+      v-for="link in links"
+      :key="link.sourceLink"
+      class="px-6 py-3 mb-5 bg-white rounded-sm"
+    >
+      <LinksItem :link="link" />
+      <!-- <span class="text-neutral-dark-blue">{{ link.shortenLink }}</span> -->
+    </div>
+  </div>
+</template>
+
+<script>
+import useLinks from "../../store/useLinks.js"
+import LinksItem from "./LinksItem.vue"
+export default {
+  components: {
+    LinksItem,
+  },
+  setup() {
+    const { links } = useLinks()
+
+    /**
+     * TODO: add a button for copying the links to the clipboard (navigator API)
+     */
+    return { links }
+  },
+}
+</script>
+
+<style></style>

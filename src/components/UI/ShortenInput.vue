@@ -30,15 +30,23 @@
         />
         <button
           class="z-10 flex-shrink-0 rounded-lg btn"
-          @click="shortenLink()"
+          @click="getShortenLink()"
         >
           <span v-if="!isLoading">Shorten it!</span>
           <span v-else>Processing...</span>
         </button>
       </div>
-      <p class="absolute hidden text-sm italic text-red-300 bottom-7 md:block">
-        Please add a link
-      </p>
+      <transition
+        enter-from-class="opacity-0"
+        enter-active-class="transition-all duration-300 ease-in"
+      >
+        <p
+          v-if="hasError"
+          class="absolute hidden text-sm italic text-red-300 bottom-7 md:block"
+        >
+          Please add a link
+        </p>
+      </transition>
     </div>
   </section>
 </template>
@@ -46,6 +54,7 @@
 <script>
 import { ref } from "@vue/reactivity"
 import useAPI from "../../composables/useAPI.js"
+import useLinks from "../../store/useLinks.js"
 import { computed } from "vue"
 
 export default {
@@ -56,12 +65,20 @@ export default {
       return hasError.value ? "Please Enter a link" : "Shorten a link here..."
     })
 
-    const { isLoading, fetchData } = useAPI()
+    const { isLoading, shortenLink, fetchData } = useAPI()
 
-    const shortenLink = async () => {
+    /**
+     * TODO: add the link to a global variable (array) in order to access it from other components
+     * TODO: add the link and links to the local storage
+     */
+    const getShortenLink = async () => {
       hasError.value = false
       if (link.value !== "") {
         await fetchData(link.value)
+
+        const { addLink } = useLinks()
+        addLink({ sourceLink: link.value, shortenLink: shortenLink.value })
+
         link.value = ""
       } else {
         hasError.value = true
@@ -69,7 +86,7 @@ export default {
       }
     }
 
-    return { link, hasError, isLoading, placeholder, shortenLink }
+    return { link, hasError, isLoading, placeholder, getShortenLink }
   },
 }
 </script>
