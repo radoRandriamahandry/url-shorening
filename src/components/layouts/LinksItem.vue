@@ -34,9 +34,7 @@ export default {
   setup(props) {
     const isCopied = ref(false)
 
-    /**
-     * TODO: add browser compatibility support in case navigator.clipboard is not available
-     */
+    // TODO: add browser compatibility support in case navigator.clipboard is not available
     const copyLink = async () => {
       if (navigator.clipboard) {
         await navigator.clipboard.writeText(props.link.shortenLink)

@@ -9,20 +9,26 @@ const links = computed(() => {
 })
 
 /**
- * TODO: populate the linksList from local storage
- * TODO: add the linksList to the local storage
- * @returns
+ * @returns String: links, function: fetchLinks, function: addLink
  */
 const useLinks = () => {
+  /**
+   * Populate the links list (linksList) if there is already a data in the local storage
+   */
+  const fetchLinks = () => {
+    if (localStorage.length) {
+      const tempList = localStorage.getItem("links")
+      linksList.value = [...JSON.parse(tempList)]
+    }
+  }
+
   const addLink = (value) => {
     console.log("adding link")
     linksList.value.push(value)
-    linksList.value.forEach((link) => {
-      console.log(link)
-    })
+    localStorage.setItem("links", JSON.stringify(linksList.value))
   }
 
-  return { links, addLink }
+  return { links, fetchLinks, addLink }
 }
 
 export default useLinks

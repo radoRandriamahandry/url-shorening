@@ -22,9 +22,8 @@ export default {
   setup() {
     const { links } = useLinks()
 
-    /**
-     * TODO: add a button for copying the links to the clipboard (navigator API)
-     */
+    // TODO: add a button for copying the links to the clipboard (navigator API)
+
     return { links }
   },
 }
