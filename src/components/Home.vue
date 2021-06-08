@@ -40,6 +40,9 @@ import Footer from "../components/layouts/Footer.vue"
 import ShortenInput from "../components/UI/ShortenInput.vue"
 import Links from "../components/layouts/Links.vue"
 
+// composables
+import useLinks from "../store/useLinks.js"
+
 export default {
   components: {
     HeroSection,
@@ -48,6 +51,10 @@ export default {
     Footer,
     ShortenInput,
     Links,
+  },
+  setup() {
+    const { fetchLinks } = useLinks()
+    fetchLinks()
   },
 }
 </script>

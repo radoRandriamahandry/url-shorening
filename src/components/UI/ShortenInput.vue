@@ -67,19 +67,20 @@ export default {
 
     const { isLoading, shortenLink, fetchData } = useAPI()
 
-    /**
-     * TODO: add the link to a global variable (array) in order to access it from other components
-     * TODO: add the link and links to the local storage
-     */
+    // TODO: add the link and links to the local storage
+    // TODO: manage error when the link cannot be shorten
+
     const getShortenLink = async () => {
       hasError.value = false
       if (link.value !== "") {
-        await fetchData(link.value)
-
-        const { addLink } = useLinks()
-        addLink({ sourceLink: link.value, shortenLink: shortenLink.value })
-
-        link.value = ""
+        try {
+          await fetchData(link.value)
+          const { addLink } = useLinks()
+          addLink({ sourceLink: link.value, shortenLink: shortenLink.value })
+          link.value = ""
+        } catch (error) {
+          console.log(error.message)
+        }
       } else {
         hasError.value = true
         console.log("Empty link")
@@ -90,5 +91,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

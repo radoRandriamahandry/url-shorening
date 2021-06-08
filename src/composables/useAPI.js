@@ -17,9 +17,13 @@ const useAPI = () => {
 
   const isLoading = ref(false)
 
+  /**
+   * Get the shorten link from the API
+   * @param {String} urlToShorten
+   * @returns
+   */
   const fetchData = async (urlToShorten) => {
     try {
-      console.log("start fetching data")
       isLoading.value = true
       const res = await axios.get(`${urlAPI}?url=${urlToShorten}`)
       shortenLink.value = res.data.result.full_short_link
