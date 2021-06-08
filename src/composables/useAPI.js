@@ -11,28 +11,27 @@ import axios from "axios"
  * @returns {fetchData}
  */
 const useAPI = () => {
-  const urlAPI = "https://api.shrtco.de/v2/shorten"
   // const urlToShorten = "https://github.com/radoRandriamahandry/url-shorening"
+  const urlAPI = "https://api.shrtco.de/v2/shorten"
+  const shortenLink = ref("")
 
   const isLoading = ref(false)
-
-  let shortenLink = ""
 
   const fetchData = async (urlToShorten) => {
     try {
       console.log("start fetching data")
       isLoading.value = true
       const res = await axios.get(`${urlAPI}?url=${urlToShorten}`)
-      shortenLink = res.data.result.full_short_link
-      console.log("shorten link : ", shortenLink)
+      shortenLink.value = res.data.result.full_short_link
       isLoading.value = false
+      return shortenLink
     } catch (error) {
       console.log(error)
       isLoading.value = false
     }
   }
 
-  return { shortenLink, isLoading, fetchData }
+  return { shortenLink, isLoading, shortenLink, fetchData }
 }
 
 export default useAPI
