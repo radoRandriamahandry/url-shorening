@@ -1,7 +1,11 @@
 <template>
-  <div class="flex items-center justify-between">
+  <div
+    class="flex flex-col items-center justify-between gap-2 py-4  lg:py-0 lg:gap-0 lg:flex-row"
+  >
     <span class="text-gray-600 line-clamp-1">{{ link.sourceLink }}</span>
-    <div class="flex items-center flex-shrink-0 gap-4">
+    <div
+      class="flex flex-col items-center flex-shrink-0 gap-4  lg:gap-2 lg:flex-row"
+    >
       <span class="text-primary-cyan">{{ link.shortenLink }}</span>
       <button
         class="w-24 py-2 text-sm rounded-md  text-gray-50 bg-primary-cyan hover:bg-opacity-80"

@@ -23,7 +23,6 @@ const useLinks = () => {
   }
 
   const addLink = (value) => {
-    console.log("adding link")
     linksList.value.push(value)
     localStorage.setItem("links", JSON.stringify(linksList.value))
   }
