@@ -16,6 +16,7 @@ const useAPI = () => {
   const shortenLink = ref("")
 
   const isLoading = ref(false)
+  const errorMessage = ref("")
 
   /**
    * Get the shorten link from the API
@@ -26,16 +27,18 @@ const useAPI = () => {
     try {
       isLoading.value = true
       const res = await axios.get(`${urlAPI}?url=${urlToShorten}`)
+      console.log("finish the request")
       shortenLink.value = res.data.result.full_short_link
       isLoading.value = false
       return shortenLink
     } catch (error) {
-      console.log(error)
       isLoading.value = false
+      errorMessage.value = "Link cannot be shorten"
+      throw new Error("Link cannot be shorten")
     }
   }
 
-  return { shortenLink, isLoading, shortenLink, fetchData }
+  return { shortenLink, isLoading, shortenLink, errorMessage, fetchData }
 }
 
 export default useAPI

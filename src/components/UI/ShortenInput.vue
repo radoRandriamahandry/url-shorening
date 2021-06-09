@@ -11,7 +11,10 @@
         alt=""
         srcset=""
       />
-      <div class="flex flex-col gap-5 md:flex-row">
+      <form
+        class="flex flex-col gap-5 md:flex-row"
+        @submit.prevent="getShortenLink"
+      >
         <!-- Input for small screen with dynamic placeholder in order to display an error message inside the input -->
         <input
           v-model="link"
@@ -28,14 +31,11 @@
           class="z-10 hidden w-full px-6 rounded-lg md:block"
           :class="[hasError && 'ring ring-red-400 placeholder-red-300']"
         />
-        <button
-          class="z-10 flex-shrink-0 rounded-lg btn"
-          @click="getShortenLink()"
-        >
+        <button type="submit" class="z-10 flex-shrink-0 rounded-lg btn">
           <span v-if="!isLoading">Shorten it!</span>
           <span v-else>Processing...</span>
         </button>
-      </div>
+      </form>
       <transition
         enter-from-class="opacity-0"
         enter-active-class="transition-all duration-300 ease-in"
@@ -44,7 +44,7 @@
           v-if="hasError"
           class="absolute hidden text-sm italic text-red-300 bottom-7 md:block"
         >
-          Please add a link
+          {{ errorMessage }}
         </p>
       </transition>
     </div>
@@ -61,14 +61,12 @@ export default {
   setup() {
     const link = ref("")
     const hasError = ref(false)
+
+    const { isLoading, shortenLink, errorMessage, fetchData } = useAPI()
+
     const placeholder = computed(() => {
-      return hasError.value ? "Please Enter a link" : "Shorten a link here..."
+      return hasError.value ? errorMessage.value : "Shorten a link here..."
     })
-
-    const { isLoading, shortenLink, fetchData } = useAPI()
-
-    // TODO: add the link and links to the local storage
-    // TODO: manage error when the link cannot be shorten
 
     const getShortenLink = async () => {
       hasError.value = false
@@ -80,14 +78,22 @@ export default {
           link.value = ""
         } catch (error) {
           console.log(error.message)
+          hasError.value = true
         }
       } else {
+        errorMessage.value = "Please enter a link!!!"
         hasError.value = true
-        console.log("Empty link")
       }
     }
 
-    return { link, hasError, isLoading, placeholder, getShortenLink }
+    return {
+      link,
+      hasError,
+      isLoading,
+      placeholder,
+      errorMessage,
+      getShortenLink,
+    }
   },
 }
 </script>
